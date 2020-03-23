@@ -10,7 +10,7 @@ lazy val root = (project in file("."))
       Dependencies.config,
       Dependencies.`log4cats-core`,
       Dependencies.`log4cats-slf4j`,
-      Dependencies.`neo4j-driver-4`,
+      Dependencies.`neo4j-driver`,
       Dependencies.`slf4j-simple` % Runtime,
       Dependencies.`slothql-cypher`
     )
@@ -22,6 +22,31 @@ enablePlugins(GraalVMNativeImagePlugin)
 graalVMNativeImageOptions ++= Seq(
   "-H:IncludeResources=application.conf",
   "-H:IncludeResources=log.properties",
+  "--initialize-at-build-time=org.slf4j.LoggerFactory",
+  "--initialize-at-build-time=org.slf4j.impl.SimpleLogger",
+  "--initialize-at-build-time=org.slf4j.impl.SimpleLoggerConfiguration",
+  "--initialize-at-build-time=org.slf4j.impl.SimpleLoggerFactory",
+  "--initialize-at-build-time=org.slf4j.impl.StaticLoggerBinder",
+  "--initialize-at-build-time=org.slf4j.impl.OutputChoice",
+  "--initialize-at-build-time=org.slf4j.helpers.NOPLoggerFactory",
+  "--initialize-at-build-time=org.slf4j.helpers.Util",
+  "--initialize-at-build-time=org.slf4j.helpers.SubstituteLoggerFactory",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent$1",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent$2",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.ReflectionUtil",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.InternalLoggerFactory",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.Slf4JLogger",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.SystemPropertyUtil",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.CleanerJava6",
+  //
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.buffer.AbstractByteBufAllocator",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.ResourceLeakDetector",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.EmptyArrays",
+  //
+  "--enable-all-security-services",
   "--no-fallback",
   "--allow-incomplete-classpath",
   // dev

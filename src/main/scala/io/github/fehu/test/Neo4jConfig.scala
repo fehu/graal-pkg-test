@@ -3,7 +3,7 @@ package io.github.fehu.test
 import java.net.URI
 
 import com.typesafe.config.ConfigFactory
-import org.neo4j.driver.{ AuthToken, AuthTokens }
+import org.neo4j.driver.v1.{ AuthToken, AuthTokens }
 
 case class Neo4jConfig(uri: URI, authToken: AuthToken)
 

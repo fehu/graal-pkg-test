@@ -1,9 +1,12 @@
 package io.github.fehu.test
 
+import java.util.logging.Level
+
 import cats.effect.IO
 import io.chrisdavenport.log4cats.slf4j.Slf4jLogger
-import org.neo4j.driver.exceptions.ServiceUnavailableException
-import org.neo4j.driver.{ Config, Driver, GraphDatabase }
+import org.neo4j.driver.internal.logging.ConsoleLogging
+import org.neo4j.driver.v1.exceptions.ServiceUnavailableException
+import org.neo4j.driver.v1.{ Config, Driver, GraphDatabase }
 
 object Test3 extends App {
   implicit val cs = IO.contextShift(scala.concurrent.ExecutionContext.global)
@@ -11,7 +14,7 @@ object Test3 extends App {
 
   private val driverCfg = Config
     .builder()
-//    .withLogging(new ConsoleLogging(Level.FINEST))
+    .withLogging(new ConsoleLogging(Level.FINEST))
     .build()
   private def newDriver(cfg: Neo4jConfig): Driver =
     try GraphDatabase.driver(cfg.uri, cfg.authToken, driverCfg)
@@ -30,12 +33,8 @@ object Test3 extends App {
     for {
       session <- IO { driver.session() }
       _ <- logger.info(s"session = $session")
-//      tx <- IO { session.beginTransaction() }
-//      _ <- logger.info(s"tx = $tx")
-//      _ <- IO { tx.success() }
       result <- IO { session.run("MATCH (n) RETURN n") }
       _      <- logger.info(s"result = $result")
-//      _ <- logger.info("done")
     } yield ()
   }(IO delay _.close())
 
