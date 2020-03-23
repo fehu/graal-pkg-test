@@ -6,9 +6,7 @@ object Dependencies {
   lazy val config               = "com.typesafe"        %  "config"             % Version.config
   lazy val `log4cats-core`      = "io.chrisdavenport"   %% "log4cats-core"      % Version.log4cats
   lazy val `log4cats-slf4j`     = "io.chrisdavenport"   %% "log4cats-slf4j"     % Version.log4cats
-//  lazy val `neo4j-driver-4`     = "org.neo4j.driver"    % "neo4j-java-driver"   % Version.neo4j4
-  lazy val `neo4j-jdbc-driver`  = "org.neo4j"           %  "neo4j-jdbc-driver"  % Version.neo4jJdbc
-  lazy val netty                = "io.netty"            %  "netty-handler"      % Version.netty
+  lazy val `neo4j-driver-4`     = "org.neo4j.driver"    % "neo4j-java-driver"   % Version.neo4j4
   lazy val scalatest            = "org.scalatest"       %% "scalatest"          % Version.scalatest
   lazy val shapeless            = "com.chuusai"         %% "shapeless"          % Version.shapeless
   lazy val `slf4j-simple`       = "org.slf4j"           %  "slf4j-simple"       % Version.slf4j
@@ -22,9 +20,7 @@ object Dependencies {
     lazy val catsEffect = "2.1.1"
     lazy val config     = "1.4.0"
     lazy val log4cats   = "1.0.1"
-//    lazy val neo4j4     = "4.0.1"
-    lazy val neo4jJdbc  = "3.4.0"
-    lazy val netty      = "4.1.22.Final"
+    lazy val neo4j4     = "4.0.1"
     lazy val scalatest  = "3.0.5"
     lazy val shapeless  = "2.3.3"
     lazy val slf4j      = "1.7.30"

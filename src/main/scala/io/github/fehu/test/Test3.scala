@@ -1,20 +1,18 @@
 package io.github.fehu.test
 
-import java.util.logging.Level
-
 import cats.effect.IO
 import io.chrisdavenport.log4cats.slf4j.Slf4jLogger
-import org.neo4j.driver.internal.logging.{ ConsoleLogging, JULogging }
-import org.neo4j.driver.v1.exceptions.ServiceUnavailableException
-import org.neo4j.driver.v1.{ Config, Driver, GraphDatabase }
+import org.neo4j.driver.exceptions.ServiceUnavailableException
+import org.neo4j.driver.{ Config, Driver, GraphDatabase }
 
 object Test3 extends App {
   implicit val cs = IO.contextShift(scala.concurrent.ExecutionContext.global)
   implicit val logger = Slf4jLogger.getLogger[IO]
 
-//  private val driverCfg = Config.defaultConfig()
-//  private val driverCfg = Config.build().withLogging(new JULogging(Level.FINEST)).toConfig
-  private val driverCfg = Config.build().withLogging(new ConsoleLogging(Level.FINEST)).toConfig
+  private val driverCfg = Config
+    .builder()
+//    .withLogging(new ConsoleLogging(Level.FINEST))
+    .build()
   private def newDriver(cfg: Neo4jConfig): Driver =
     try GraphDatabase.driver(cfg.uri, cfg.authToken, driverCfg)
     catch {

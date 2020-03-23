@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  neo4j:
+    image: 'neo4j:4.0.2'
+    ports:
+      - 7474:7474
+      - 7687:7687
+    environment:
+      NEO4J_AUTH: 'neo4j/test'
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "0.0.0.0:7474"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 5
