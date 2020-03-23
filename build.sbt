@@ -31,6 +31,7 @@ graalVMNativeImageOptions ++= Seq(
   "-H:IncludeResources=log.properties",
 //  "-H:Optimize=0",
   "-H:ReflectionConfigurationFiles=" + baseDirectory.value / "graal" / "reflectconf.json",
+//  "--initialize-at-build-time",
 //  "--initialize-at-build-time=org.slf4j.LoggerFactory",
 //  "--initialize-at-build-time=org.slf4j.impl.SimpleLogger",
 //  "--initialize-at-build-time=org.slf4j.impl.SimpleLoggerConfiguration",
@@ -53,6 +54,9 @@ graalVMNativeImageOptions ++= Seq(
 //  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0",
 //  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.util.UnsafeRefArrayAccess",
 //  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.CleanerJava6",
+  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.handler.ssl.ConscryptAlpnSslEngine",
+  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.handler.ssl.ReferenceCountedOpenSslEngine",
+  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.Log4JLogger",
   //
 //  "-Dorg.neo4j.driver.internal.shaded.io.netty.noUnsafe=true",
 //  "-Djava.io.tmpdir=/tmp",

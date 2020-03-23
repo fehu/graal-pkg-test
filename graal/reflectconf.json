@@ -10,5 +10,207 @@
     "methods": [
       { "name": "<init>", "parameterTypes": [] }
     ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.bootstrap.ServerBootstrap$ServerBootstrapAcceptor",
+    "methods":[
+      {"name":"channelRead","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] },
+      {"name":"exceptionCaught","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }
+    ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.buffer.AbstractByteBufAllocator",
+    "allDeclaredMethods":true
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.buffer.AbstractReferenceCountedByteBuf",
+    "fields":[{"name":"refCnt"}]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.channel.ChannelDuplexHandler",
+    "methods":[
+      {"name":"bind","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"close","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"connect","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","java.net.SocketAddress","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"deregister","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"disconnect","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"flush","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"read","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"write","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] }
+    ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerAdapter",
+    "methods":[{"name":"exceptionCaught","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.channel.ChannelInboundHandlerAdapter",
+    "methods":[
+      {"name":"channelActive","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelInactive","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelRead","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] },
+      {"name":"channelReadComplete","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelRegistered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelUnregistered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelWritabilityChanged","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"exceptionCaught","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] },
+      {"name":"userEventTriggered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] }
+    ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.channel.ChannelInitializer",
+    "methods":[
+      {"name":"channelRegistered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"exceptionCaught","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] }
+    ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.channel.ChannelOutboundHandlerAdapter",
+    "methods":[
+      {"name":"bind","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"close","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"connect","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","java.net.SocketAddress","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"deregister","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"disconnect","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"flush","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"read","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] }
+    ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline$HeadContext",
+    "methods":[
+      {"name":"bind","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"channelActive","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelInactive","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelRead","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] },
+      {"name":"channelReadComplete","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelRegistered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelUnregistered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelWritabilityChanged","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"close","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"connect","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.net.SocketAddress","java.net.SocketAddress","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"deregister","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"disconnect","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] },
+      {"name":"exceptionCaught","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] },
+      {"name":"flush","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"read","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"userEventTriggered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] },
+      {"name":"write","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] }
+    ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.channel.DefaultChannelPipeline$TailContext",
+    "methods":[
+      {"name":"channelActive","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelInactive","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelRead","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] },
+      {"name":"channelReadComplete","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelRegistered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelUnregistered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelWritabilityChanged","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"exceptionCaught","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Throwable"] },
+      {"name":"userEventTriggered","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] }
+    ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.handler.codec.ByteToMessageDecoder",
+    "methods":[
+      {"name":"channelInactive","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] },
+      {"name":"channelRead","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] },
+      {"name":"channelReadComplete","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext"] }
+    ]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.handler.codec.MessageToMessageDecoder",
+    "methods":[{"name":"channelRead","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object"] }]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.handler.codec.MessageToMessageEncoder",
+    "methods":[{"name":"write","parameterTypes":["org.neo4j.driver.internal.shaded.io.netty.channel.ChannelHandlerContext","java.lang.Object","org.neo4j.driver.internal.shaded.io.netty.channel.ChannelPromise"] }]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.util.ReferenceCountUtil",
+    "allDeclaredMethods":true
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueColdProducerFields",
+    "fields":[{"name":"producerLimit"}]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueConsumerFields",
+    "fields":[{"name":"consumerIndex"}]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.queues.BaseMpscLinkedArrayQueueProducerFields",
+    "fields":[{"name":"producerIndex"}]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueConsumerIndexField",
+    "fields":[{"name":"consumerIndex"}]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerIndexField",
+    "fields":[{"name":"producerIndex"}]
+  },
+  {
+    "name":"org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.queues.MpscArrayQueueProducerLimitField",
+    "fields":[{"name":"producerLimit"}]
+  },
+  {
+    "name":"java.net.SocketOption"
+  },
+  {
+    "name":"java.net.StandardSocketOptions",
+    "fields":[
+      {"name":"IP_MULTICAST_IF"},
+      {"name":"IP_MULTICAST_LOOP"},
+      {"name":"IP_MULTICAST_TTL"}
+    ]
+  },
+  {
+    "name":"java.nio.Bits",
+    "methods":[{"name":"unaligned","parameterTypes":[] }]
+  },
+  {
+    "name":"java.nio.Buffer",
+    "fields":[{"name":"address"}]
+  },
+  {
+    "name":"java.nio.DirectByteBuffer",
+    "fields":[{"name":"cleaner"}],
+    "methods":[{"name":"<init>","parameterTypes":["long","int"] }]
+  },
+  {
+    "name":"java.nio.channels.NetworkChannel",
+    "methods":[
+      {"name":"getOption","parameterTypes":["java.net.SocketOption"] },
+      {"name":"setOption","parameterTypes":["java.net.SocketOption","java.lang.Object"] }
+    ]
+  },
+  {
+    "name":"javax.management.ObjectName"
+  },
+  {
+    "name":"sun.misc.Cleaner",
+    "methods":[{"name":"clean","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.misc.Unsafe",
+    "fields":[{"name":"theUnsafe"}],
+    "methods":[
+      {"name":"copyMemory","parameterTypes":["java.lang.Object","long","java.lang.Object","long","long"] },
+      {"name":"getAndSetObject","parameterTypes":["java.lang.Object","long","java.lang.Object"] }
+    ]
+  },
+  {
+    "name":"sun.misc.VM",
+    "methods":[{"name":"maxDirectMemory","parameterTypes":[] }]
+  },
+  {
+    "name":"sun.nio.ch.SelectorImpl",
+    "fields":[
+      {"name":"publicSelectedKeys"},
+      {"name":"selectedKeys"}
+    ]
   }
 ]
