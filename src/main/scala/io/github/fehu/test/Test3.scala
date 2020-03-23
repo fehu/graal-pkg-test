@@ -4,9 +4,8 @@ import java.util.logging.Level
 
 import cats.effect.IO
 import io.chrisdavenport.log4cats.slf4j.Slf4jLogger
-import org.neo4j.driver.internal.logging.ConsoleLogging
 import org.neo4j.driver.v1.exceptions.ServiceUnavailableException
-import org.neo4j.driver.v1.{ Config, Driver, GraphDatabase }
+import org.neo4j.driver.v1.{ Config, Driver, GraphDatabase, Logging }
 
 object Test3 extends App {
   implicit val cs = IO.contextShift(scala.concurrent.ExecutionContext.global)
@@ -14,7 +13,7 @@ object Test3 extends App {
 
   private val driverCfg = Config
     .builder()
-    .withLogging(new ConsoleLogging(Level.FINEST))
+    .withLogging(Logging.console(Level.ALL))
     .build()
   private def newDriver(cfg: Neo4jConfig): Driver =
     try GraphDatabase.driver(cfg.uri, cfg.authToken, driverCfg)

@@ -4,5 +4,11 @@
     "methods": [
       { "name": "toLeakAwareBuffer", "parameterTypes": ["org.neo4j.driver.internal.shaded.io.netty.buffer.ByteBuf"] }
     ]
+  },
+  {
+    "name": "org.neo4j.driver.internal.shaded.io.netty.channel.socket.nio.NioServerSocketChannel",
+    "methods": [
+      { "name": "<init>", "parameterTypes": [] }
+    ]
   }
 ]
