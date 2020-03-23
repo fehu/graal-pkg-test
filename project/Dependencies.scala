@@ -13,12 +13,16 @@ object Dependencies {
   lazy val `slothql-arrows`     = "com.arkondata"       %% "slothql-arrows"     % Version.slothql
   lazy val `slothql-cypher`     = "com.arkondata"       %% "slothql-cypher"     % Version.slothql exclude ("org.neo4j.driver", "neo4j-java-driver")
 
+  //Graal / Provided
+  lazy val svm = "com.oracle.substratevm" % "svm" % Version.graal % "provided"
+
   object Version {
     lazy val akka       = "2.6.3"
     lazy val akkaHttp   = "10.1.11"
     lazy val cats       = "2.1.0"
     lazy val catsEffect = "2.1.1"
     lazy val config     = "1.4.0"
+    lazy val graal      = "19.1.1"
     lazy val log4cats   = "1.0.1"
     lazy val neo4j      = "1.7.5"
     lazy val scalatest  = "3.0.5"

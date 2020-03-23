@@ -14,6 +14,13 @@ lazy val root = (project in file("."))
       Dependencies.`slf4j-simple` % Runtime,
       Dependencies.`slothql-cypher`
     )
+  ).dependsOn(substitutions)
+
+lazy val substitutions = (project in file("substitutions"))
+  .settings(
+    name := "graal-pkg-test-substitutions",
+    skip in publish := true,
+    libraryDependencies += Dependencies.svm
   )
 
 // GraalVM image
@@ -22,8 +29,6 @@ enablePlugins(GraalVMNativeImagePlugin)
 graalVMNativeImageOptions ++= Seq(
   "-H:IncludeResources=application.conf",
   "-H:IncludeResources=log.properties",
-//  "-H:SubstitutionResources=" + baseDirectory.value / "graal" / "substitutions.json",
-  "-H:SubstitutionFiles=" + baseDirectory.value / "graal" / "substitutions.json",
 //  "-H:Optimize=0",
   "-H:ReflectionConfigurationFiles=" + baseDirectory.value / "graal" / "reflectconf.json",
 //  "--initialize-at-build-time=org.slf4j.LoggerFactory",
@@ -58,35 +63,3 @@ graalVMNativeImageOptions ++= Seq(
   // dev
   "-H:+ReportExceptionStackTraces"
 )
-
-
-
-/*
-  {
-    "annotatedClass": "io.github.fehu.test.Target_io_netty_util_internal_CleanerJava6",
-    "originalClass": "org.neo4j.driver.internal.shaded.io.netty.util.internal.CleanerJava6",
-    "fields": [
-      {
-        "annotatedName": "CLEANER_FIELD_OFFSET",
-        "alias": true,
-        "kindClassName": "com.oracle.svm.core.annotate.RecomputeFieldValue.Kind.FieldOffset",
-        "declClassName": "java.nio.DirectByteBuffer",
-        "name": "cleaner"
-      }
-    ]
-  },
-  {
-    "annotatedClass": "io.github.fehu.test.Target_io_netty_util_internal_shaded_org_jctools_util_UnsafeRefArrayAccess",
-    "originalClass": "org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.util.UnsafeRefArrayAccess",
-    "fields": [
-      {
-        "annotatedName": "REF_ELEMENT_SHIFT",
-        "alias": true,
-        "kindClassName": "com.oracle.svm.core.annotate.RecomputeFieldValue.Kind.ArrayIndexShift",
-        "declClassName": "java.lang.Object[]",
-        "name": "<init>"
-      }
-    ]
-  }
-
- */
