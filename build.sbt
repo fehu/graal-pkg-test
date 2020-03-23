@@ -22,6 +22,7 @@ enablePlugins(GraalVMNativeImagePlugin)
 graalVMNativeImageOptions ++= Seq(
   "-H:IncludeResources=application.conf",
   "-H:IncludeResources=log.properties",
+  "-H:ReflectionConfigurationFiles=" + baseDirectory.value / "graal" / "reflectconf.json",
   "--initialize-at-build-time=org.slf4j.LoggerFactory",
   "--initialize-at-build-time=org.slf4j.impl.SimpleLogger",
   "--initialize-at-build-time=org.slf4j.impl.SimpleLoggerConfiguration",
@@ -41,10 +42,6 @@ graalVMNativeImageOptions ++= Seq(
   "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.Slf4JLogger",
   "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.SystemPropertyUtil",
   "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.CleanerJava6",
-  //
-  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.buffer.AbstractByteBufAllocator",
-  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.ResourceLeakDetector",
-  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.EmptyArrays",
   //
   "--enable-all-security-services",
   "--no-fallback",

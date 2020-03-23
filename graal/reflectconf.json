@@ -1,0 +1,8 @@
+[
+  {
+    "name": "org.neo4j.driver.internal.shaded.io.netty.buffer.AbstractByteBufAllocator",
+    "methods": [
+      { "name": "toLeakAwareBuffer", "parameterTypes": ["org.neo4j.driver.internal.shaded.io.netty.buffer.ByteBuf"] }
+    ]
+  }
+]
