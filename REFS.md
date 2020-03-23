@@ -1,0 +1,13 @@
+
+- https://github.com/oracle/graal/blob/master/substratevm/REFLECTION.md
+- https://github.com/oracle/graal/issues/1995
+- https://github.com/oracle/graal/issues/1261
+- https://github.com/vmencik/akka-graal-native
+- https://medium.com/graalvm/instant-netty-startup-using-graalvm-native-image-generation-ed6f14ff7692
+- https://github.com/oracle/graal/issues/917
+- https://github.com/skjolber/substratevm-netty-hello-world
+- https://github.com/graalvm/graalvm-demos/tree/master/native-netty-plot
+- https://github.com/graalvm/graalvm-demos/blob/master/native-netty-plot/src/main/java/com/oracle/svm/nettyplot/NettySubstitutions.java
+- https://github.com/oracle/graal/blob/master/substratevm/src/com.oracle.svm.core/src/com/oracle/svm/core/jdk/JavaLangSubstitutions.java
+- https://github.com/oracle/graal/issues/1261
+- https://gist.github.com/Jotschi/9aa9f44653e1d004b875bab0a10c1575
