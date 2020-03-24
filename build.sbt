@@ -26,44 +26,22 @@ lazy val substitutions = (project in file("substitutions"))
 // GraalVM image
 enablePlugins(GraalVMNativeImagePlugin)
 
+lazy val initializeAtRunTime = Seq(
+  "org.neo4j.driver.internal.shaded.io.netty"
+)
+
 graalVMNativeImageOptions ++= Seq(
   "-H:IncludeResources=application.conf",
   "-H:IncludeResources=log.properties",
-//  "-H:Optimize=0",
-  "-H:ReflectionConfigurationFiles=" + baseDirectory.value / "graal" / "reflectconf.json",
-//  "--initialize-at-build-time",
-//  "--initialize-at-build-time=org.slf4j.LoggerFactory",
-//  "--initialize-at-build-time=org.slf4j.impl.SimpleLogger",
-//  "--initialize-at-build-time=org.slf4j.impl.SimpleLoggerConfiguration",
-//  "--initialize-at-build-time=org.slf4j.impl.SimpleLoggerFactory",
-//  "--initialize-at-build-time=org.slf4j.impl.StaticLoggerBinder",
-//  "--initialize-at-build-time=org.slf4j.impl.OutputChoice",
-//  "--initialize-at-build-time=org.slf4j.helpers.NOPLoggerFactory",
-//  "--initialize-at-build-time=org.slf4j.helpers.Util",
-//  "--initialize-at-build-time=org.slf4j.helpers.SubstituteLoggerFactory",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent$1",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent$2",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.ReflectionUtil",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.InternalLoggerFactory",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.Slf4JLoggerFactory",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.Slf4JLogger",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.SystemPropertyUtil",
-//  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.CleanerJava6",
-//  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.PlatformDependent0",
-//  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.shaded.org.jctools.util.UnsafeRefArrayAccess",
-//  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.CleanerJava6",
-  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.handler.ssl.ConscryptAlpnSslEngine",
-  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.handler.ssl.ReferenceCountedOpenSslEngine",
-  "--initialize-at-run-time=org.neo4j.driver.internal.shaded.io.netty.util.internal.logging.Log4JLogger",
-  //
-//  "-Dorg.neo4j.driver.internal.shaded.io.netty.noUnsafe=true",
-//  "-Djava.io.tmpdir=/tmp",
-  //
-  "--enable-all-security-services",
   "--no-fallback",
   "--allow-incomplete-classpath",
+  "--initialize-at-build-time",
+  "--initialize-at-run-time=" + initializeAtRunTime.mkString(","),
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util",
+  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.buffer",
+  "--enable-all-security-services",
   // dev
-  "-H:+ReportExceptionStackTraces"
+  "-H:+ReportExceptionStackTraces",
+  // This flag greatly helps to configure the image build to work as intended; the goal is to have as many classes initialized at build time and yet keep the correct semantics of the program. [[https://github.com/oracle/graal/blob/master/substratevm/CLASS-INITIALIZATION.md]]
+  "-H:+PrintClassInitialization"
 )
