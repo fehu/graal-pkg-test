@@ -23,9 +23,3 @@ $ sbt universal:stage
 ```
 $ target/universal/stage/bin/graal-pkg-test
 ```
-
-
-TODO
-----
-
-- Driver logs at GraalVM image are not shown
