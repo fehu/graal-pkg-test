@@ -26,8 +26,19 @@ lazy val substitutions = (project in file("substitutions"))
 // GraalVM image
 enablePlugins(GraalVMNativeImagePlugin)
 
+lazy val initializeAtBuildTime = Seq(
+  "org.neo4j.driver.internal.shaded.io.netty.buffer.EmptyByteBuf",
+  "org.neo4j.driver.internal.shaded.io.netty.buffer.ReadOnlyByteBuf",
+  "org.neo4j.driver.internal.shaded.io.netty.buffer.Unpooled",
+  "org.neo4j.driver.internal.shaded.io.netty.buffer.UnpooledByteBufAllocator",
+  "org.neo4j.driver.internal.shaded.io.netty.buffer.UnpooledByteBufAllocator$InstrumentedUnpooledUnsafeHeapByteBuf",
+  "org.neo4j.driver.internal.shaded.io.netty.buffer.UnpooledByteBufAllocator$UnpooledByteBufAllocatorMetric",
+  "org.neo4j.driver.internal.shaded.io.netty.buffer.UnreleasableByteBuf",
+  "org.neo4j.driver.internal.shaded.io.netty.buffer.UnsafeByteBufUtil",
+)
+
 lazy val initializeAtRunTime = Seq(
-  "org.neo4j.driver.internal.shaded.io.netty"
+  "org.neo4j.driver.internal.shaded.io.netty.buffer"
 )
 
 graalVMNativeImageOptions ++= Seq(
@@ -37,8 +48,7 @@ graalVMNativeImageOptions ++= Seq(
   "--allow-incomplete-classpath",
   "--initialize-at-build-time",
   "--initialize-at-run-time=" + initializeAtRunTime.mkString(","),
-  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.util",
-  "--initialize-at-build-time=org.neo4j.driver.internal.shaded.io.netty.buffer",
+  "--initialize-at-build-time=" + initializeAtBuildTime.mkString(","),
   "--enable-all-security-services",
   // dev
   "-H:+ReportExceptionStackTraces",
