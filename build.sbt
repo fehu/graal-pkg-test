@@ -10,7 +10,6 @@ lazy val root = (project in file("."))
       Dependencies.config,
       Dependencies.`log4cats-core`,
       Dependencies.`log4cats-slf4j`,
-      Dependencies.`neo4j-driver-4`,
       Dependencies.`slf4j-simple` % Runtime,
       Dependencies.`slothql-cypher`
     )
@@ -24,6 +23,7 @@ graalVMNativeImageOptions ++= Seq(
   "-H:IncludeResources=log.properties",
   "--no-fallback",
   "--allow-incomplete-classpath",
+  "--initialize-at-build-time=scala.Symbol",
   // dev
   "-H:+ReportExceptionStackTraces"
 )

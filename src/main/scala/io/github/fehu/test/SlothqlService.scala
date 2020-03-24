@@ -1,11 +1,10 @@
-/*
 package io.github.fehu.test
 
 import cats.effect.IO
 import cats.instances.list._
 import com.arkondata.slothql.neo4j.Neo4jCypherTransactor
-import org.neo4j.driver.v1.exceptions.ServiceUnavailableException
-import org.neo4j.driver.v1.{ Config, Driver, GraphDatabase }
+import org.neo4j.driver.exceptions.ServiceUnavailableException
+import org.neo4j.driver.{ Config, Driver, GraphDatabase }
 
 
 class SlothqlService(cfg: Neo4jConfig)  {
@@ -32,4 +31,4 @@ object SlothqlService {
     catch {
       case _: ServiceUnavailableException => sys.exit(2)
     }
-}*/
+}

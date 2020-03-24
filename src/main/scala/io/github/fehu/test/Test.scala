@@ -1,4 +1,3 @@
-/*
 package io.github.fehu.test
 
 import cats.effect.IO
@@ -41,4 +40,3 @@ object Test extends App {
   try io.unsafeRunSync()
   finally service.close()
 }
-*/
