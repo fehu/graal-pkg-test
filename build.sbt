@@ -18,12 +18,19 @@ lazy val root = (project in file("."))
 // GraalVM image
 enablePlugins(GraalVMNativeImagePlugin)
 
+lazy val initializeAtRunTime = Seq(
+  "org.neo4j.driver.internal.shaded.io.netty.buffer"
+)
+
 graalVMNativeImageOptions ++= Seq(
   "-H:IncludeResources=application.conf",
   "-H:IncludeResources=log.properties",
   "--no-fallback",
   "--allow-incomplete-classpath",
-  "--initialize-at-build-time=scala.Symbol",
+  "--initialize-at-build-time",
+  "--initialize-at-run-time=" + initializeAtRunTime.mkString(","),
   // dev
-  "-H:+ReportExceptionStackTraces"
+  "-H:+ReportExceptionStackTraces",
+  // This flag greatly helps to configure the image build to work as intended; the goal is to have as many classes initialized at build time and yet keep the correct semantics of the program. [[https://github.com/oracle/graal/blob/master/substratevm/CLASS-INITIALIZATION.md]]
+  "-H:+PrintClassInitialization"
 )
